@@ -1,3 +1,10 @@
 .todoapp {
     padding: 20px 0;
 }
+
+.todoapp__body {
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

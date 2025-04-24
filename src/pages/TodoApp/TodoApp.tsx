@@ -1,3 +1,5 @@
+import FormTodo from '../../components/FormTodo/FormTodo'
+import TodoItem from '../../components/TodoItem/TodoItem'
 import s from './todoApp.module.css'
 
 const TodoApp = () => {
@@ -5,7 +7,8 @@ const TodoApp = () => {
         <div className={s.todoapp}>
             <div className="container">
                 <div className={s.todoapp__body}>
-                    TodoApp
+                    <FormTodo />
+                    <TodoItem />
                 </div>
             </div>
         </div>

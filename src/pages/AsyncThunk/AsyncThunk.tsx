@@ -1,3 +1,4 @@
+import Posts from '../../components/Posts/Posts'
 import s from './asyncThunk.module.css'
 
 const AsyncThunk = () => {
@@ -5,7 +6,7 @@ const AsyncThunk = () => {
         <div className={s.asyncthunk}>
             <div className="container">
                 <div className={s.asyncthunk__body}>
-                    AsyncThunk
+                    <Posts />
                 </div>
             </div>
         </div>

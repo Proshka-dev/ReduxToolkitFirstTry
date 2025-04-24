@@ -1,0 +1,20 @@
+.todoitem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todoitem__text1 {
+    background-color: hsl(90, 100%, 80%);
+    padding: 7px;
+    border: 1px solid black;
+}
+
+.todoitem__text2 {
+    padding: 7px;
+}
+
+.todoitem__text3 {
+    background-color: hsl(344, 69%, 80%);
+    padding: 7px;
+    border: 1px solid black;
+}

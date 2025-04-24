@@ -1,0 +1,10 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 450px;
+}
+
+.posts__button {
+    max-width: 150px;
+}

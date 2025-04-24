@@ -14,3 +14,22 @@ body {
     max-width: 1180px;
   }
 }
+
+input {
+  border: 1px solid black;
+  padding: 5px;
+  box-shadow: 0 0 7px grey;
+}
+
+button {
+  border: 1px solid black;
+  padding: 5px;
+  box-shadow: 0 0 7px grey;
+  border-radius: 5px;
+  background-color: rgb(216, 217, 245);
+}
+
+button:hover {
+  border: 1px solid darkblue;
+  box-shadow: 0 0 10px rgb(194, 96, 232);
+}

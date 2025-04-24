@@ -1,0 +1,7 @@
+.formtodo {
+    display: flex;
+}
+
+.formtodo__input {
+    flex: 1 1 auto
+}
