@@ -1,10 +1,11 @@
 import FirstNameInput from '../../components/FirstNameInput/FirstNameInput'
 import FirstNameLabel from '../../components/FirstNameLabel/FirstNameLabel'
-import SecondNameInput from '../../components/SecondNameInput/SecondNameInput'
-import SecondNameLabel from '../../components/SecondNameLabel/SecondNameLabel'
+import LastNameInput from '../../components/LastNameInput/LastNameInput'
+import LastNameLabel from '../../components/LastNameLabel/LastNameLabel'
 import s from './stateChange.module.css'
 
 const StateChange = () => {
+
     return (
         <div className={s.statechange}>
             <div className="container">
@@ -13,9 +14,9 @@ const StateChange = () => {
                         Redux Toolkit State Change
                     </div>
                     <FirstNameInput />
-                    <SecondNameInput />
+                    <LastNameInput />
                     <FirstNameLabel />
-                    <SecondNameLabel />
+                    <LastNameLabel />
                 </div>
             </div>
         </div>
