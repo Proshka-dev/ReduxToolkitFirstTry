@@ -1,18 +1,12 @@
 import s from './firstNameLabel.module.css'
 
 // Redux
-import { useSelector } from 'react-redux'
-
-interface IState {
-    user: {
-        firstName: string;
-    }
-}
+import { useAppSelector } from '../../hooks';
 
 const FirstNameLabel = () => {
 
     // Redux - хук useSelector
-    const name = useSelector((state: IState) => (state.user.firstName));
+    const name = useAppSelector((state) => (state.user.firstName));
 
     return (
         <div className={s.firstnamelabel}>
@@ -22,3 +16,4 @@ const FirstNameLabel = () => {
 }
 
 export default FirstNameLabel
+

@@ -1,17 +1,17 @@
 import s from './lastNameInput.module.css'
 
 // Redux
-import { useDispatch } from 'react-redux'
-import { setLastNameAction } from '../../features/user/userSlice';
+import { useAppDispatch } from '../../hooks';
+import { setLastNameReducer } from '../../features/user/userSlice';
 
 const SecondNameInput = () => {
 
     // Redux - хук для вызова actions
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
         // Вызов действия
-        dispatch(setLastNameAction(e.target.value));
+        dispatch(setLastNameReducer(e.target.value));
     }
 
     return (

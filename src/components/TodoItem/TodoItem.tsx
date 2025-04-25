@@ -1,18 +1,20 @@
 import React from 'react'
 import s from './todoItem.module.css'
-import { useDispatch } from 'react-redux'
-import { toggleCompletedTodo, removeTodo } from '../../features/todo/todoSlice'
+import { useAppDispatch } from '../../hooks'
+import { toggleCompletedTodoReducer, removeTodoReducer } from '../../features/todo/todoSlice'
 
-const TodoItem = ({ value }) => {
+import { ITodo } from '../../features/todo/todoSlice'
 
-    const dispatch = useDispatch();
+const TodoItem = ({ value }: { value: ITodo }) => {
 
-    const toggleTodoHandler = (id) => {
-        dispatch(toggleCompletedTodo(id))
+    const dispatch = useAppDispatch();
+
+    const toggleTodoHandler = (id: string) => {
+        dispatch(toggleCompletedTodoReducer(id))
     }
 
-    const removeTodoHandler = (id) => {
-        dispatch(removeTodo(id))
+    const removeTodoHandler = (id: string) => {
+        dispatch(removeTodoReducer(id))
     }
 
 
@@ -24,7 +26,8 @@ const TodoItem = ({ value }) => {
             >
                 Complete
             </div>
-            <div className={s.todoitem__text2} >
+            {/* <div className={`${s.todoitem__text2} ${value.completed === true ? s.todoitem__text2_completed : ''}`} > */}
+            <div className={`${s.todoitem__text2} ${value.completed === true && s.todoitem__text2_completed}`} >
                 {value.text}
             </div>
             <div
@@ -33,7 +36,6 @@ const TodoItem = ({ value }) => {
             >
                 Delete
             </div>
-            {(value.completed === true) && 'completed'}
         </div>
     )
 }

@@ -1,6 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+// TS
+import type { PayloadAction } from '@reduxjs/toolkit'
+// TS
+export interface IUserState {
+    firstName: string;
+    lastName: string;
+}
+
+const initialState: IUserState = {
     firstName: '',
     lastName: '',
 }
@@ -10,18 +18,18 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setFirstNameReducer: (state, action) => {
+        setFirstNameReducer: (state, action: PayloadAction<string>) => {
             state.firstName = action.payload;
         },
-        setLastNameReducer: (state, action) => {
+        setLastNameReducer: (state, action: PayloadAction<string>) => {
             state.lastName = action.payload;
         },
     }
 });
 
 // Action
-const setFirstNameAction = userSlice.actions.setFirstNameReducer;
-const setLastNameAction = userSlice.actions.setLastNameReducer;
+const setFirstNameReducer = userSlice.actions.setFirstNameReducer; // для записи в состояние
+const setLastNameReducer = userSlice.actions.setLastNameReducer;
 
-export { userSlice, setFirstNameAction, setLastNameAction }
+export { userSlice, setFirstNameReducer, setLastNameReducer }
 export default userSlice.reducer

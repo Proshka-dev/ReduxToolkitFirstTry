@@ -1,18 +1,19 @@
 import s from './firstNameInput.module.css'
 
 // Redux
-import { useDispatch } from 'react-redux'
-import { setFirstNameAction } from '../../features/user/userSlice';
+import { setFirstNameReducer } from '../../features/user/userSlice';
 
+// TS (импорт типизированного хука вместо стандартного для Redux useDispatch)
+import { useAppDispatch } from '../../hooks';
 
 const FirstNameInput = () => {
 
     // Redux - хук для вызова actions
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
         // Вызов действия
-        dispatch(setFirstNameAction(e.target.value));
+        dispatch(setFirstNameReducer(e.target.value));
     }
 
     return (

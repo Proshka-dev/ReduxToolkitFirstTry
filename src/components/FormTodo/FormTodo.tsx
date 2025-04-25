@@ -5,8 +5,8 @@ import s from './formTodo.module.css'
 import { v4 as uuidv4 } from 'uuid';
 
 // Redux
-import { useDispatch, UseDispatch } from 'react-redux'
-import { addTodoAction } from '../../features/todo/todoSlice'
+import { useAppDispatch } from '../../hooks';
+import { addTodoReducer } from '../../features/todo/todoSlice'
 
 const FormTodo = () => {
 
@@ -17,7 +17,7 @@ const FormTodo = () => {
     }
 
     //Redux
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onClickButtonHandler = () => {
         const todo = {
@@ -26,7 +26,7 @@ const FormTodo = () => {
             completed: false,
         }
 
-        dispatch(addTodoAction(todo));
+        dispatch(addTodoReducer(todo));
         setTodoValue('');
     }
 

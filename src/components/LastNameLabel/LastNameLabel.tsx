@@ -1,17 +1,11 @@
 import s from './lastNameLabel.module.css'
 
 // Redux
-import { useSelector } from 'react-redux'
-
-interface IState {
-    user: {
-        lastName: string;
-    }
-}
+import { useAppSelector } from '../../hooks';
 
 const LastNameLabel = () => {
     // Redux - хук useSelector
-    const lastName = useSelector((state: IState) => (state.user.lastName));
+    const lastName = useAppSelector((state) => (state.user.lastName));
 
 
     return (
