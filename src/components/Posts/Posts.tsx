@@ -2,7 +2,7 @@ import React from 'react'
 import PostItem from '../PostItem/PostItem'
 import s from './posts.module.css'
 import { useAppDispatch, useAppSelector } from '../../hooks'
-import { getPosts } from '../../features/post/postSlice'
+import { getPostsThunk } from '../../features/post/postSlice'
 
 const Posts = () => {
     const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ const Posts = () => {
             <button
                 type='submit'
                 className={s.posts__button}
-                onClick={() => dispatch(getPosts())}
+                onClick={() => dispatch(getPostsThunk())}
             >
                 Get posts
             </button>
