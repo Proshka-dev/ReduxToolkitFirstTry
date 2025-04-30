@@ -14,23 +14,24 @@ export interface IPost {
     body: string;
 }
 
-const initialState: { posts: IPost[] } = {
-    posts: []
+const initialState: { posts: IPost[], loadingPostStatus: string } = {
+    posts: [],
+    loadingPostStatus: 'idle',
 }
 
 export const getPostsThunk = createAsyncThunk(
     'posts/getPosts',
-    async (payload, { rejectWithValue, dispatch }) => {
-        const result = await axios.get('https://jsonplaceholder.typicode.com/posts');
-        dispatch(setPostsReducer(result.data));
+    async () => {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        return response.data;
     }
 );
 
 export const deletePostByIdThunk = createAsyncThunk(
     'posts/deletePostById',
-    async (id, { rejectWithValue, dispatch }) => {
+    async (id: string) => {
         await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-        dispatch(deletePostByIdReducer(id));
+        return id;
     }
 );
 
@@ -40,23 +41,45 @@ const postSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        setPostsReducer: (state, action: PayloadAction<IPost[]>) => {
-            state.posts = action.payload;
-        },
-        deletePostByIdReducer: (state, action: PayloadAction<string>) => {
-            state.posts = state.posts.filter((item) => (item.id !== action.payload));
-        },
     },
-    //extraReducers: {
-    //[getPostsThunk.fulfilled]: ((state, action) => console.log('fulfilled')),
-    // [getPosts.pending]: () => console.log('pending'),
-    // [getPosts.rejected]: () => console.log('rejected'),
-    //},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getPostsThunk.pending, (state) => {
+                console.log('getPostsThunk - pending')
+                state.loadingPostStatus = 'loading';
+            })
+            .addCase(getPostsThunk.fulfilled, (state, action) => {
+                // Если запрос выполнен успешно - обновляем массив пользователей в state
+                state.posts = action.payload;
+                console.log('getPostsThunk - fulfilled')
+                state.loadingPostStatus = 'idle';
+            })
+            .addCase(getPostsThunk.rejected, (state) => {
+                console.log('getPostsThunk - rejected')
+                state.loadingPostStatus = 'idle';
+            })
+            .addCase(deletePostByIdThunk.pending, (state) => {
+                console.log('deletePostByIdThunk - pending');
+                state.loadingPostStatus = 'loading';
+            })
+            .addCase(deletePostByIdThunk.fulfilled, (state, action) => {
+
+                state.posts = state.posts.filter((item) => (item.id !== action.payload));
+                console.log('deletePostByIdThunk - fulfilled')
+                console.log('action.payload = ', action.payload)
+                state.loadingPostStatus = 'idle';
+            })
+            .addCase(deletePostByIdThunk.rejected, (state) => {
+                console.log('deletePostByIdThunk - rejected')
+                state.loadingPostStatus = 'idle';
+            })
+
+    },
+
 });
 
 // Reducers
-const setPostsReducer = postSlice.actions.setPostsReducer; // для записи в состояние
-const deletePostByIdReducer = postSlice.actions.deletePostByIdReducer; // для записи в состояние
+//const deletePostByIdReducer = postSlice.actions.deletePostByIdReducer; // для записи в состояние
 
 export { postSlice }
 export default postSlice.reducer

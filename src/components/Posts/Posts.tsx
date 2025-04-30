@@ -7,9 +7,14 @@ import { getPostsThunk } from '../../features/post/postSlice'
 const Posts = () => {
     const dispatch = useAppDispatch();
     const posts = useAppSelector((state) => state.post.posts);
+    const loadingStatus = useAppSelector((state) => state.post.loadingPostStatus);
 
     return (
         <div className={s.posts}>
+            <div>
+                {(loadingStatus === 'loading') && 'Loading...'}
+            </div>
+
             <button
                 type='submit'
                 className={s.posts__button}
