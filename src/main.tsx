@@ -12,10 +12,12 @@ import StateChange from './pages/StateChange/StateChange.tsx'
 import TodoApp from './pages/TodoApp/TodoApp.tsx'
 import AsyncThunk from './pages/AsyncThunk/AsyncThunk.tsx'
 
+
 // Хранилище
 import { store } from './store/store.ts'
 // В компонент Provider оборачивается все приложение
 import { Provider } from 'react-redux'
+import PostsByRtx from './pages/PostsByRtx/PostsByRtx.tsx'
 
 const router = createBrowserRouter([
 	{
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
 			{
 				path: "asyncthunk",
 				Component: AsyncThunk,
+			},
+			{
+				path: "postsbyrtx",
+				Component: PostsByRtx,
 			},
 		]
 	},

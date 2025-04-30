@@ -1,0 +1,33 @@
+import React from 'react'
+import PostItem from '../PostItem/PostItem'
+import s from './postsRtx.module.css'
+import { useAppDispatch, useAppSelector } from '../../hooks'
+// import { getPostsThunk } from '../../features/post/postSlice'
+
+const PostsRtx = () => {
+    const dispatch = useAppDispatch();
+    const posts = useAppSelector((state) => state.postRtx.posts);
+    const loadingStatus = useAppSelector((state) => state.postRtx.loadingPostStatus);
+
+    return (
+        <div className={s.postsrtx}>
+            <div>
+                {(loadingStatus === 'loading') && 'Loading...'}
+            </div>
+
+            <button
+                type='submit'
+                className={s.postsrtx__button}
+            // onClick={() => dispatch(getPostsThunk())}
+            >
+                Get posts
+            </button>
+            {/* {posts?.map((item) => (
+                <PostItem key={item.title} post={item} />
+            ))} */}
+
+        </div>
+    )
+}
+
+export default PostsRtx
