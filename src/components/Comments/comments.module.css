@@ -1,10 +1,10 @@
-.postsrtx {
+.comments {
     display: flex;
     flex-direction: column;
     gap: 20px;
     max-width: 450px;
 }
 
-.postsrtx__button {
+.comments__button {
     max-width: 150px;
 }

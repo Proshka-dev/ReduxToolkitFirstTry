@@ -18,7 +18,8 @@
     "react-qr-barcode-scanner": "^2.0.4",
     "react-redux": "^9.2.0",
     "react-router": "^7.5.0",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

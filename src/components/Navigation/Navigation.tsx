@@ -9,7 +9,7 @@ const Navigation = () => {
                 <NavLink className='navigation__link' to="/statechange">StateChange</NavLink>
                 <NavLink className='navigation__link' to="/todoapp">TodoApp</NavLink>
                 <NavLink className='navigation__link' to="/asyncthunk">AsyncThunk</NavLink>
-                <NavLink className='navigation__link' to="/postsbyrtx">PostsByRtx</NavLink>
+                <NavLink className='navigation__link' to="/comments">Comments page</NavLink>
             </nav>
         </>
 

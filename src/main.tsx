@@ -17,7 +17,7 @@ import AsyncThunk from './pages/AsyncThunk/AsyncThunk.tsx'
 import { store } from './store/store.ts'
 // В компонент Provider оборачивается все приложение
 import { Provider } from 'react-redux'
-import PostsByRtx from './pages/PostsByRtx/PostsByRtx.tsx'
+import CommentsPage from './pages/CommentsPage/CommentsPage.tsx'
 
 const router = createBrowserRouter([
 	{
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
 				Component: AsyncThunk,
 			},
 			{
-				path: "postsbyrtx",
-				Component: PostsByRtx,
+				path: "comments",
+				Component: CommentsPage,
 			},
 		]
 	},

@@ -2,7 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import userSlice from "../features/user/userSlice";
 import todoSlice from "../features/todo/todoSlice";
 import postSlice from "../features/post/postSlice";
-import postRtxSlice from "../features/postRtx/postRtxSlice";
+import commentsSlice from "../features/comments/commentsSlice";
+import { baseApi } from "../shared/api";
+
+export const extraArgument = {
+    //router,
+}
 
 
 // Создание и конфигурация хранилища
@@ -11,8 +16,16 @@ const store = configureStore({
         user: userSlice,
         todo: todoSlice,
         post: postSlice,
-        postRtx: postRtxSlice,
-    }
+        [baseApi.reducerPath]: baseApi.reducer, // редьюсер RTK Query
+    },
+
+    // middleware для работы RTK Query
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({ thunk: { extraArgument } }).concat(
+            baseApi.middleware
+        ),
+
+
 });
 
 export { store }
