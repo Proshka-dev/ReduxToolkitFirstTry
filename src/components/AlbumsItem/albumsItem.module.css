@@ -1,0 +1,12 @@
+.albumsitem {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    padding: 5px;
+    transition: background-color 300ms ease-in-out;
+
+}
+
+.albumsitem:hover {
+    background-color: rgb(203, 230, 250);
+}

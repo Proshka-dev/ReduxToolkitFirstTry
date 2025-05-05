@@ -2,8 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import userSlice from "../features/user/userSlice";
 import todoSlice from "../features/todo/todoSlice";
 import postSlice from "../features/post/postSlice";
-import commentsSlice from "../features/comments/commentsSlice";
+//import commentsSlice from "../features/comments/commentsSlice";
 import { baseApi } from "../shared/api";
+import albumsSlice from "../features/albums/albumsSlice";
 
 export const extraArgument = {
     //router,
@@ -17,6 +18,7 @@ const store = configureStore({
         todo: todoSlice,
         post: postSlice,
         [baseApi.reducerPath]: baseApi.reducer, // редьюсер RTK Query
+        albums: albumsSlice,
     },
 
     // middleware для работы RTK Query

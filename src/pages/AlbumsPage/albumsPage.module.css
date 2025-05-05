@@ -1,0 +1,36 @@
+.albumspage {
+    padding: 20px 0;
+
+
+}
+
+.albumspage__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.albumspage__button {
+    width: fit-content;
+}
+
+.albumspage__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* padding: 20px 0; */
+}
+
+.albumspage__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.albumspage__modal div {
+    background-color: rgb(220, 245, 252);
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px grey;
+}

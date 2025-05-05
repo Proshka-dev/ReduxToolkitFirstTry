@@ -18,6 +18,7 @@ import { store } from './store/store.ts'
 // В компонент Provider оборачивается все приложение
 import { Provider } from 'react-redux'
 import CommentsPage from './pages/CommentsPage/CommentsPage.tsx'
+import AlbumsPage from './pages/AlbumsPage/AlbumsPage.tsx'
 
 const router = createBrowserRouter([
 	{
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
 			{
 				path: "comments",
 				Component: CommentsPage,
+			},
+			{
+				path: "albums",
+				Component: AlbumsPage,
 			},
 		]
 	},

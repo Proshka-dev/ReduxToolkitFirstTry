@@ -4,13 +4,13 @@ import s from './commentsItem.module.css'
 import { useAppDispatch } from '../../hooks'
 import { IComment } from '../../features/comments/commentsSlice'
 
-const CommentsItem = ({ comment }: { comment: IComment }) => {
-    const dispatch = useAppDispatch();
+const CommentsItem = ({ comment, onClick }: { comment: IComment, onClick: Function }) => {
+    // const dispatch = useAppDispatch();
 
     return (
         <div
             className={s.commentsitem}
-        //          onClick={() => dispatch(deletePostByIdThunk(post.id))}
+            onClick={onClick}
         >
             {comment.name}
             {comment.email}
@@ -19,3 +19,5 @@ const CommentsItem = ({ comment }: { comment: IComment }) => {
 }
 
 export default CommentsItem
+
+// 

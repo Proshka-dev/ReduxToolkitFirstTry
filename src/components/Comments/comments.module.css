@@ -8,3 +8,9 @@
 .comments__button {
     max-width: 150px;
 }
+
+.comments__modalwrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
